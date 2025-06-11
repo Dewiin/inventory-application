@@ -1,0 +1,20 @@
+{
+  "name": "inventory-application",
+  "version": "1.0.0",
+  "description": "Inventory Application project from The Odin Project curriculum",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "Dewiin",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.0",
+    "prettier": "^3.5.3"
+  }
+}
