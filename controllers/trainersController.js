@@ -1,6 +1,5 @@
-
 async function trainersListGet(req, res) {
-  res.render("trainers/trainers", {title: "Pokémon Trainers"});
+	res.render("trainers/trainers", { title: "Pokémon Trainers" });
 }
 
 async function trainersCreateGet(req, res) {}
