@@ -14,7 +14,7 @@
 	gap: 5rem;
 	text-align: center;
 	padding: 1rem 0;
-	background-color: rgba(0,0,0,0.7);
+	background-color: var(--navbar-background-color);
 	backdrop-filter: blur(20px);
 }
 
@@ -36,5 +36,5 @@
 .navbar > a p {
 	margin: 0;
 	font-size: 12px;
-	color: #ddd;
+	color: var(--font-color);
 }
