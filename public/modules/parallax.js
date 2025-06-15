@@ -9,7 +9,10 @@ const parallaxBg = () => {
         const yPos = (e.clientY / window.innerHeight - 0.5) * 2;
 
         homeBackground.style.transform = `translate(${xPos * 20}px, ${yPos * 20}px)`;
-        allPokemonView.style.transform = `translate(${xPos * 5}px, ${yPos * 5}px)`;
+
+        if(allPokemonView) {
+            allPokemonView.style.transform = `translate(${xPos * 5}px, ${yPos * 5}px)`;
+        }
     });
 };
 
