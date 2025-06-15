@@ -9,6 +9,8 @@
 }
 
 .navbar {
+	position: fixed;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	gap: 5rem;
@@ -16,6 +18,7 @@
 	padding: 1rem 0;
 	background-color: var(--navbar-background-color);
 	backdrop-filter: blur(20px);
+	z-index: 2;
 }
 
 .navbar > a {
