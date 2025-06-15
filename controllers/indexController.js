@@ -8,6 +8,16 @@ async function indexGet(req, res) {
 	res.render("index", { title: "Pokédex", pokemons: pokemons, types: types });
 }
 
+async function indexTypeGet(req, res) {
+	const type = req.params.type;
+	
+	const pokemons = await types_db.getPokemonByType(type);
+	const types = await types_db.getAllTypes();
+
+	res.render("index", { title: "Pokédex", pokemons: pokemons, types: types});
+}
+
 module.exports = {
 	indexGet,
+	indexTypeGet
 };

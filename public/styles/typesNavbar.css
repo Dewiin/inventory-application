@@ -1,7 +1,7 @@
 .types-navbar {
 	display: flex;
 	gap: 2rem;
-	width: 100%;
+	width: 90%;
 	height: fit-content;
 	justify-content: center;
 	align-items: center;
@@ -15,4 +15,6 @@
 
 .type-view > img {
 	width: 100%;
+    border: 3px solid black;
+    border-radius: 5px;
 }
