@@ -6,19 +6,29 @@
   <title><%= title %></title>
   <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="styles/pokemonView.css">
+  <link rel="stylesheet" href="styles/typesNavbar.css">
   <script src="/modules/observer.js" defer></script>
   <%-include("partials/favicon")%>
 </head>
 <body>
   <%-include("partials/parallax")%>
-  <%-include("partials/navbar")%>
 
-  <div class="all-pokemon-view">
-    <% pokemons.map((pokemon, index) => { %>
-      <%-include("partials/pokemon", {pokemon: pokemon})%>
-    <% }) %>
+  <div class="navbar">
+    <%-include("partials/navbar")%>
+    <section class="types-navbar">
+      <% types.map((type) => { %>
+        <%-include("partials/type", {type: type})%>
+      <% }) %>
+    </section>
   </div>
 
-  <footer></footer>
+  <section class="index-main-content">
+    <div class="all-pokemon-view">
+      <% pokemons.map((pokemon) => { %>
+        <%-include("partials/pokemon", {pokemon: pokemon})%>
+      <% }) %>
+    </div>
+  </section>
+
 </body>
 </html>

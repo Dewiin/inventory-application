@@ -1,7 +1,5 @@
 .all-pokemon-view {
 	height: 100%;
-	width: 80%;
-	padding: 11em 0 5em;
 	margin: auto;
 	display: flex;
 	justify-content: center;
