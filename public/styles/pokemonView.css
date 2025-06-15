@@ -1,7 +1,7 @@
 .all-pokemon-view {
     height: 100%;
     width: 80%;
-    padding: 10em 0;
+    padding: 11em 0 5em;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -20,11 +20,6 @@
     background-color: var(--view-background-color);
     backdrop-filter: blur(5px);
     cursor: pointer;
-}
-
-.pokemon-view:hover {
-    transition: transform 150ms;
-    transform: scale(1.1);
 }
 
 .pokemon-view > img {
