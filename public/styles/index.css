@@ -5,8 +5,8 @@
 
 :root {
 	--font-color: #ddd;
-	--navbar-background-color: rgba(0,0,0,0.8);
-	--view-background-color: rgba(0,0,0,0.6);
+	--navbar-background-color: rgba(0, 0, 0, 0.8);
+	--view-background-color: rgba(0, 0, 0, 0.6);
 }
 
 * {
