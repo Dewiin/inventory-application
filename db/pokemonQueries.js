@@ -12,12 +12,38 @@ async function getAllPokemon() {
 	}
 }
 
-async function insertPokemon(name, sprite, pokedex_id, type1, type2) {
+async function insertPokemon(
+	name,
+	sprite,
+	pokedex_id,
+	type1,
+	type2,
+	hp,
+	attack,
+	defense,
+	sp_attack,
+	sp_defense,
+	speed,
+) {
 	try {
-		await pool.query(
-			"INSERT INTO pokemons (name, sprite, pokedex_id, type1, type2) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (name) DO NOTHING",
-			[name, sprite, pokedex_id, type1, type2],
-		);
+		const SQL = `
+		INSERT INTO pokemons (name, sprite, pokedex_id, type1, type2, hp, attack, defense, sp_attack, sp_defense, speed)
+		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) ON CONFLICT (name) DO NOTHING
+		`;
+
+		await pool.query(SQL, [
+			name,
+			sprite,
+			pokedex_id,
+			type1,
+			type2,
+			hp,
+			attack,
+			defense,
+			sp_attack,
+			sp_defense,
+			speed,
+		]);
 	} catch (error) {
 		console.error(`Error inserting ${name} into database: `, error);
 	}

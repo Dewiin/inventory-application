@@ -10,14 +10,23 @@ async function indexGet(req, res) {
 
 async function indexTypeGet(req, res) {
 	const type = req.params.type;
-	
+
 	const pokemons = await types_db.getPokemonByType(type);
 	const types = await types_db.getAllTypes();
 
-	res.render("index", { title: "Pokédex", pokemons: pokemons, types: types});
+	res.render("index", { title: "Pokédex", pokemons: pokemons, types: types });
+}
+
+async function indexDetailsGet(req, res) {
+	const pokemon_name = req.params.name;
+
+	const types = await types_db.getTypes(pokemon_name);
+
+	res.json({ types: types });
 }
 
 module.exports = {
 	indexGet,
-	indexTypeGet
+	indexTypeGet,
+	indexDetailsGet,
 };

@@ -27,15 +27,35 @@ async function extractPokemonURL(url) {
 				try {
 					const name =
 						pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-					const [sprite, type1, type2] = await extractSpriteAndType(
-						pokemon.url,
-					);
+					const [
+						sprite,
+						type1,
+						type2,
+						hp,
+						attack,
+						defense,
+						sp_attack,
+						sp_defense,
+						speed,
+					] = await extractInfo(pokemon.url);
 
-					if (!sprite || !type) {
+					if (!sprite || !type1) {
 						throw new Error("Failed to retrieve sprite/type...");
 					}
 
-					await db.insertPokemon(name, sprite, index, type1, type2);
+					await db.insertPokemon(
+						name,
+						sprite,
+						index,
+						type1,
+						type2,
+						hp,
+						attack,
+						defense,
+						sp_attack,
+						sp_defense,
+						speed,
+					);
 				} catch (error) {
 					console.error("Error inserting pokemon: ", error);
 				}
@@ -46,7 +66,7 @@ async function extractPokemonURL(url) {
 	}
 }
 
-async function extractSpriteAndType(url) {
+async function extractInfo(url) {
 	try {
 		const response = await fetch(url);
 		if (!response.ok) {
@@ -57,8 +77,24 @@ async function extractSpriteAndType(url) {
 		const sprite = result.sprites.front_default;
 		const type1 = result.types[0].type.name;
 		const type2 = result.types.length == 2 ? result.types[1].type.name : null;
+		const hp = result.stats[0].base_stat;
+		const attack = result.stats[1].base_stat;
+		const defense = result.stats[2].base_stat;
+		const sp_attack = result.stats[3].base_stat;
+		const sp_defense = result.stats[4].base_stat;
+		const speed = result.stats[5].base_stat;
 
-		return [sprite, type1, type2];
+		return [
+			sprite,
+			type1,
+			type2,
+			hp,
+			attack,
+			defense,
+			sp_attack,
+			sp_defense,
+			speed,
+		];
 	} catch (error) {
 		console.error("Error: ", error);
 	}
