@@ -11,6 +11,7 @@
 
 * {
 	font-family: "HeartGold-SoulSilver Full-Length", sans-serif;
+	user-select: none;
 }
 
 html,
@@ -25,9 +26,9 @@ body {
 
 .parallax-bg {
 	position: absolute;
-	top: -5%;
+	top: -3%;
 	left: -5%;
-	height: 107%;
+	height: 108%;
 	width: 110%;
 	background: url("/assets/main_bg.png") no-repeat top center;
 	background-size: cover;
