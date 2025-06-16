@@ -1,47 +1,47 @@
 .pokeball-icon {
-	background: url("/assets/pokeball_icon.png") no-repeat top;
-	background-size: contain;
+  background: url("/assets/pokeball_icon.png") no-repeat top;
+  background-size: contain;
 }
 
 .trainer-icon {
-	background: url("/assets/pokemon_trainer_icon.png") no-repeat top center;
-	background-size: contain;
+  background: url("/assets/pokemon_trainer_icon.png") no-repeat top center;
+  background-size: contain;
 }
 
 .navbar {
-	width: 100%;
-	height: fit-content;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 2rem;
-	padding: 1rem 0 2rem;
-	background-color: var(--navbar-background-color);
-	backdrop-filter: blur(20px);
-	border: 5px solid;
-	box-sizing: border-box;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0 2rem;
+  background-color: var(--navbar-background-color);
+  backdrop-filter: blur(20px);
+  border: 5px solid;
+  box-sizing: border-box;
 }
 
 .icons {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 5rem;
-	text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  text-align: center;
 }
 
 .icons > a {
-	min-width: 80px;
-	height: 95px;
-	text-decoration: none;
-	display: flex;
-	align-items: end;
-	justify-content: center;
+  min-width: 80px;
+  height: 95px;
+  text-decoration: none;
+  display: flex;
+  align-items: end;
+  justify-content: center;
 }
 
 .icons > a p {
-	margin: 0;
-	font-size: 12px;
-	color: var(--font-color);
+  margin: 0;
+  font-size: 12px;
+  color: var(--font-color);
 }

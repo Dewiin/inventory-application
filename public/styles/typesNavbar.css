@@ -1,20 +1,20 @@
 .types-navbar {
-	display: flex;
-	gap: 2rem;
-	width: 90%;
-	height: fit-content;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+  display: flex;
+  gap: 2rem;
+  width: 90%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .type-view {
-	width: 75px;
-	cursor: pointer;
+  width: 75px;
+  cursor: pointer;
 }
 
 .type-view > img {
-	width: 100%;
-	border: 3px solid black;
-	border-radius: 5px;
+  width: 100%;
+  border: 3px solid black;
+  border-radius: 5px;
 }
