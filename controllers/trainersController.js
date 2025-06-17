@@ -1,5 +1,9 @@
+const trainers_db = require("../db/trainerQueries");
+
 async function trainersListGet(req, res) {
-  res.render("trainers/trainers", { title: "Pokémon Trainers" });
+  const trainers = await trainers_db.getAllTrainers();
+
+  res.render("trainers/trainers", { title: "Pokémon Trainers", trainers: trainers });
 }
 
 async function trainersCreateGet(req, res) {}

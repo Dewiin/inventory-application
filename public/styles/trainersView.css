@@ -1,0 +1,39 @@
+.trainers-main-content {
+    min-height: fit-content;
+    height: 100%;
+    padding-top: 5em;
+    width: 80%;
+    margin: auto;
+}
+
+.all-trainers-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.trainer-view {
+    width: 150px;
+    height: 150px;
+    padding: 2rem 3rem;
+    border: 3px solid;
+    border-radius: 25px;
+    background-color: var(--view-background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.trainer-view > img {
+    width: 50%;
+}
+
+.trainer-view > p {
+    margin: 0;
+    color: white;
+}

@@ -1,5 +1,10 @@
 const cards = document.querySelectorAll(".pokemon-card");
 
+async function coldStart() {
+  const coldStart = await fetch(`/api/pokemon/Bulbasaur/details`);
+}
+coldStart();
+
 cards.forEach((card) => {
   card.addEventListener("click", async () => {
     const name = card.dataset.name;
@@ -11,21 +16,27 @@ cards.forEach((card) => {
       `.pokemon-view.card-back[data-name="${name}"]`,
     );
 
-    const response = await fetch(`/api/pokemon/${name}/details`);
-    const data = await response.json();
+    if(!card.classList.contains("clicked")) {
+      const response = await fetch(`/api/pokemon/${name}/details`);
+      const data = await response.json();
 
-    const typesElement = document.querySelector(
-      `.pokemon-view.card-back[data-name="${name}"] .types`,
-    );
-    typesElement.replaceChildren();
+      console.log(data);
 
-    data.types.forEach((type) => {
-      const typeImg = document.createElement("img");
-      typeImg.src = type.sprite;
-      typeImg.alt = type.name;
-      typeImg.classList.add("type-view");
-      typesElement.appendChild(typeImg);
-    });
+      const typesElement = document.querySelector(
+        `.pokemon-view.card-back[data-name="${name}"] .types`,
+      );
+      typesElement.replaceChildren();
+
+      data.types.forEach((type) => {
+        const typeImg = document.createElement("img");
+        typeImg.src = type.sprite;
+        typeImg.alt = type.name;
+        typeImg.classList.add("type-view");
+        typesElement.appendChild(typeImg);
+      });
+
+      card.classList.add("clicked");
+    }
 
     card.classList.toggle("active");
     frontCard.classList.toggle("active");
