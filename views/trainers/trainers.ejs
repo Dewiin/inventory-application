@@ -15,7 +15,11 @@
     <%-include("../partials/navbar")%>
   </div>
 
+  
+
   <section class="trainers-main-content">
+    <%-include("../partials/addTrainer")%>
+
     <div class="all-trainers-view">
       <% trainers.forEach((trainer) => { %>
         <%-include("../partials/trainer", {trainer: trainer})%>

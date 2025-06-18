@@ -20,8 +20,6 @@ cards.forEach((card) => {
       const response = await fetch(`/api/pokemon/${name}/details`);
       const data = await response.json();
 
-      console.log(data);
-
       const typesElement = document.querySelector(
         `.pokemon-view.card-back[data-name="${name}"] .types`,
       );
