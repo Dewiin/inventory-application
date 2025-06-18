@@ -18,7 +18,13 @@ async function trainersCreatePost(req, res) {
   res.redirect("/trainers");
 }
 
+async function trainerDetailsGet(req, res) {
+  const { name } = req.params;
+  res.render("trainers/trainerDetails", {title: "Trainer Details", trainer: name});
+}
+
 module.exports = {
   trainersListGet,
   trainersCreatePost,
+  trainerDetailsGet
 };
