@@ -16,7 +16,7 @@ cards.forEach((card) => {
       `.pokemon-view.card-back[data-name="${name}"]`,
     );
 
-    if(!card.classList.contains("clicked")) {
+    if (!card.classList.contains("clicked")) {
       const response = await fetch(`/api/pokemon/${name}/details`);
       const data = await response.json();
 
