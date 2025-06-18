@@ -20,11 +20,17 @@ async function trainersCreatePost(req, res) {
 
 async function trainerDetailsGet(req, res) {
   const { name } = req.params;
-  res.render("trainers/trainerDetails", {title: "Trainer Details", trainer: name});
+
+  const pokemons = await trainers_db;
+
+  res.render("trainers/trainerDetails", {
+    title: "Trainer Details",
+    trainer: name,
+  });
 }
 
 module.exports = {
   trainersListGet,
   trainersCreatePost,
-  trainerDetailsGet
+  trainerDetailsGet,
 };

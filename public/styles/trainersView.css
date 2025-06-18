@@ -46,7 +46,7 @@
   align-items: center;
   border: 4px solid;
   border-radius: 25px;
-	z-index: 3;
+  z-index: 3;
 }
 
 .add-trainer-modal > form {
@@ -57,7 +57,7 @@
 }
 
 #trainer-name {
-	text-align: center;
+  text-align: center;
 }
 
 /* All trainers */
@@ -67,10 +67,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 3rem;
 }
 
 .trainer-view {
+  text-decoration: none;
   width: 150px;
   height: 150px;
   padding: 2rem 3rem;

@@ -20,7 +20,25 @@ async function insertTrainer(name, gender) {
   }
 }
 
+async function getTrainerPokemons(name) {
+  try {
+    const SQL = `
+      SELECT * 
+      FROM pokemons p
+      JOIN trainer_pokemons tp ON p.id = tp.pokemon_id
+      JOIN trainers ON tp.trainer_id = t.id
+      WHERE t.name = $1
+    `;
+
+    const { rows } = await pool.query(SQL, [name]);
+    return rows;
+  } catch (error) {
+    console.error(`Error fetching ${name}'s pokemons from database: `, error);
+  }
+}
+
 module.exports = {
   getAllTrainers,
   insertTrainer,
+  getTrainerPokemons,
 };

@@ -6,7 +6,7 @@ addTrainerButton.addEventListener("click", () => {
 });
 
 modal.addEventListener("click", (e) => {
-    if(e.target === e.currentTarget) {
-        modal.style.visibility = "hidden";
-    }
+  if (e.target === e.currentTarget) {
+    modal.style.visibility = "hidden";
+  }
 });
