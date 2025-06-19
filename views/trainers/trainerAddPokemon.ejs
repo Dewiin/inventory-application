@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/addPokemonView.css">
+  <script src="/modules/vanilla-tilt.js" defer></script>
+  <%-include("../partials/favicon")%>
+</head>
+<body>
+  <%-include("../partials/parallax")%>
+  <div class="navbar hidden">
+      <%-include("../partials/navbar")%>
+  </div>
+
+  <section class="all-add-pokemon-view">
+    <% pokemons.forEach((pokemon) => { %>
+      <%-include("../partials/addPokemon.ejs", {pokemon: pokemon})%>
+    <% }) %>
+  </section>
+
+</body>
+</html>

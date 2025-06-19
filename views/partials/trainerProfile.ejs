@@ -1,8 +1,30 @@
 <div class="trainer-details-profile">
-    <div class="trainer-details-image">
-
+    <div class="trainer-details-image" tabindex="0"
+    data-tilt data-tilt-glare="true" 
+    data-tilt-max-glare="0.3" 
+    data-tilt-perspective="500" 
+    data-tilt-scale="1.05" 
+    data-tilt-reverse="true">
+        <% if(trainer[0].gender === 'male') { %>
+            <img src="/assets/trainer_m_details.gif">
+        <% } else { %>
+            <img src="/assets/trainer_f_details.gif">
+        <% } %>
+        <p><%= trainer[0].name %></p>
     </div>
+    <a href="/trainers/<%=trainer[0].name%>/addPokemon" tabindex="-1">
+        <button class="trainer-add-pokemon"
+            data-tilt data-tilt-glare="true" 
+            data-tilt-max-glare="0.8" 
+            data-tilt-perspective="200" 
+            data-tilt-scale="1.1" 
+            data-tilt-reverse="true">
+            Add Pokemon
+        </button>
+    </a>
     <div class="trainer-details-pokemons">
-
+        <% pokemons.forEach((pokemon) => { %>
+            <%-include("./pokemon.ejs", {pokemon: pokemon})%>
+        <% }) %>
     </div>
 </div>

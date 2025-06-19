@@ -20,13 +20,25 @@ async function insertTrainer(name, gender) {
   }
 }
 
+async function getTrainer(name) {
+  try {
+    const { rows } = await pool.query(
+      "SELECT * FROM trainers WHERE name = $1",
+      [name],
+    );
+    return rows;
+  } catch (error) {
+    console.error(`Error fetching trainer ${name}: `, error);
+  }
+}
+
 async function getTrainerPokemons(name) {
   try {
     const SQL = `
       SELECT * 
       FROM pokemons p
       JOIN trainer_pokemons tp ON p.id = tp.pokemon_id
-      JOIN trainers ON tp.trainer_id = t.id
+      JOIN trainers t ON tp.trainer_id = t.id
       WHERE t.name = $1
     `;
 
@@ -40,5 +52,6 @@ async function getTrainerPokemons(name) {
 module.exports = {
   getAllTrainers,
   insertTrainer,
+  getTrainer,
   getTrainerPokemons,
 };
