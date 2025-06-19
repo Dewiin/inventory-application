@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/styles/index.css">
   <link rel="stylesheet" href="/styles/addPokemonView.css">
   <script src="/modules/vanilla-tilt.js" defer></script>
+  <script src="/modules/select.js" defer></script>
   <%-include("../partials/favicon")%>
 </head>
 <body>
@@ -15,11 +16,22 @@
       <%-include("../partials/navbar")%>
   </div>
 
-  <section class="all-add-pokemon-view">
-    <% pokemons.forEach((pokemon) => { %>
-      <%-include("../partials/addPokemon.ejs", {pokemon: pokemon})%>
-    <% }) %>
-  </section>
+  <form action="/trainers/<%=trainer.name%>/addPokemon" method="POST" class="add-pokemon-main-content">
+    <button type="submit"
+    data-tilt data-tilt-glare="true" 
+    data-tilt-max-glare="0.3" 
+    data-tilt-perspective="200" 
+    data-tilt-scale="1.1" 
+    data-tilt-reverse="true"
+    >
+      Confirm
+    </button>
+    <section class="all-add-pokemon-view">
+      <% pokemons.forEach((pokemon) => { %>
+        <%-include("../partials/addPokemon.ejs", {pokemon: pokemon})%>
+      <% }) %>
+    </section>
+  </form>
 
 </body>
 </html>

@@ -5,6 +5,8 @@
   data-tilt-perspective="500" 
   data-tilt-scale="1.1" 
   data-tilt-reverse="true">
+    <input type="checkbox" name="pokemon" value="<%= pokemon.id %>" hidden/>
+    <div data-name="<%= pokemon.name %>">SELECTED</div>
     <img src="<%= pokemon.sprite %>">
     <p><b><%= pokemon.name %></b></p>
 </div>

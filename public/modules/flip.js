@@ -1,10 +1,5 @@
 const cards = document.querySelectorAll(".pokemon-card");
 
-async function coldStart() {
-  const coldStart = await fetch(`/api/pokemon/Bulbasaur/details`);
-}
-coldStart();
-
 cards.forEach((card) => {
   card.addEventListener("click", async () => {
     const name = card.dataset.name;
@@ -18,6 +13,8 @@ cards.forEach((card) => {
 
     if (!card.classList.contains("clicked")) {
       const response = await fetch(`/api/pokemon/${name}/details`);
+      if (!response.ok) throw new Error(`Failed to get a response: ${response.status}`);
+
       const data = await response.json();
 
       const typesElement = document.querySelector(
