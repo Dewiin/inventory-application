@@ -22,6 +22,15 @@
       <%-include("../partials/errors", {errors: errors})%>
     <% } %>
 
+    <button class="add-trainer-button" tabindex="0"
+      data-tilt data-tilt-glare="true" 
+      data-tilt-max-glare="0.3" 
+      data-tilt-perspective="500" 
+      data-tilt-scale="1.3" 
+      data-tilt-reverse="true">
+      +
+    </button>
+
     <div class="all-trainers-view">
       <% trainers.forEach((trainer) => { %>
         <%-include("../partials/trainer", {trainer: trainer})%>

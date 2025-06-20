@@ -39,7 +39,7 @@ async function trainersCreatePost(req, res) {
     return res.render("trainers/trainers", {
       title: "Pokémon Trainers",
       trainers: trainers,
-      errors: errors.array()
+      errors: errors.array(),
     });
   }
 
@@ -72,7 +72,7 @@ async function trainerPokemonGet(req, res) {
 
   const selectedPokemon = new Set(trainerPokemons.map((pokemon) => pokemon.id));
 
-  const pokemons = allPokemon.map(pokemon => ({
+  const pokemons = allPokemon.map((pokemon) => ({
     ...pokemon,
     selected: selectedPokemon.has(pokemon.id),
   }));
@@ -82,23 +82,25 @@ async function trainerPokemonGet(req, res) {
   res.render("trainers/trainerAddPokemon", {
     title: `${name}'s Pokemon`,
     pokemons: pokemons,
-    trainer: trainer
+    trainer: trainer,
   });
 }
 
 async function trainerPokemonPost(req, res) {
   const { name } = req.params;
-  const selectedPokemon = (req.body.pokemon ? Array.from(req.body.pokemon) : []);
+  const selectedPokemon = req.body.pokemon ? Array.from(req.body.pokemon) : [];
 
   const trainer = await trainers_db.getTrainer(name);
   const trainerID = trainer.id;
 
-  if(Array.isArray(selectedPokemon)) {
-    await pool.query('DELETE FROM trainer_pokemons WHERE trainer_id = $1', [trainerID]);
+  if (Array.isArray(selectedPokemon)) {
+    await pool.query("DELETE FROM trainer_pokemons WHERE trainer_id = $1", [
+      trainerID,
+    ]);
     await Promise.all(
       selectedPokemon.map(async (pokemonID) => {
         await trainers_db.insertPokemonForTrainer(trainerID, pokemonID);
-      })
+      }),
     );
   }
 

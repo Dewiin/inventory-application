@@ -1,14 +1,14 @@
 .search-bar {
-    margin: 2em 0 ;
-    text-align: center;
+  margin: 2em 0;
+  text-align: center;
 }
 
 #searchPokemon {
-    padding: 0.25rem 1.5rem;
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: rgba(200, 200, 200, 0.8);
-    color: black;
-    font-size: 12px;
+  padding: 0.25rem 1.5rem;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgba(200, 200, 200, 0.8);
+  color: black;
+  font-size: 12px;
 }

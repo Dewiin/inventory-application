@@ -13,7 +13,8 @@ cards.forEach((card) => {
 
     if (!card.classList.contains("clicked")) {
       const response = await fetch(`/api/pokemon/${name}/details`);
-      if (!response.ok) throw new Error(`Failed to get a response: ${response.status}`);
+      if (!response.ok)
+        throw new Error(`Failed to get a response: ${response.status}`);
 
       const data = await response.json();
 

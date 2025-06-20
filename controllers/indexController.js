@@ -37,5 +37,5 @@ module.exports = {
   indexGet,
   indexSearchPost,
   indexTypeGet,
-  indexDetailsGet
+  indexDetailsGet,
 };

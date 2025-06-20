@@ -1,12 +1,3 @@
-<button class="add-trainer-button" tabindex="0"
-    data-tilt data-tilt-glare="true" 
-    data-tilt-max-glare="0.3" 
-    data-tilt-perspective="500" 
-    data-tilt-scale="1.3" 
-    data-tilt-reverse="true">
-    +
-</button>
-
 <section class="add-trainer">
     <div class="add-trainer-modal"
         data-tilt data-tilt-glare="true" 
@@ -15,14 +6,20 @@
         data-tilt-reverse="true">
         <p><b>Add New Trainer</b></p>
         <form action="/trainers" method="POST">
-            <input type="text" name="trainer-name" id="trainer-name" maxlength="20" placeholder="Name..." required>
+            <input type="text" name="trainer-name" id="trainer-name" maxlength="20" placeholder="Name..." autocomplete="off">
             <span>
                 <input type="radio" value="male" name="trainer-gender" id="trainer-male-option" checked>
                 <label for="trainer-male-option">Male</label>
                 <input type="radio" value="female" name="trainer-gender" id="trainer-female-option">
                 <label for="trainer-female-option">Female</label>
             </span>
-            <button type="submit">Submit</button>
+            <button type="submit"
+                data-tilt data-tilt-glare="true" 
+                data-tilt-max-glare="0.1" 
+                data-tilt-scale="1.1" 
+                data-tilt-reverse="true">
+                Submit
+            </button>
         </form>
     </div>
 </section>
