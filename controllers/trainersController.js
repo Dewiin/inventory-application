@@ -8,8 +8,8 @@ const validateTrainer = [
     .trim()
     .notEmpty()
     .withMessage("Trainer name must not be empty.")
-    .matches(/^\S+$/)
-    .withMessage("Trainer name can not contain any spaces.")
+    .matches(/^[a-zA-Z]+$/)
+    .withMessage("Trainer name can only contain alphabetical letters.")
     .custom(async (val) => {
       const lowerName = val.toLowerCase();
       const { rows } = await pool.query(
@@ -34,9 +34,15 @@ async function trainersListGet(req, res) {
 
 async function trainersCreatePost(req, res) {
   const errors = validationResult(req);
-  // if (!errors.empty) {
-  //   res.render();
-  // }
+  if (!errors.isEmpty()) {
+    const trainers = await trainers_db.getAllTrainers();
+    return res.render("trainers/trainers", {
+      title: "Pokémon Trainers",
+      trainers: trainers,
+      errors: errors.array()
+    });
+  }
+
   const trainer_name = req.body["trainer-name"];
   const trainer_gender = req.body["trainer-gender"];
 
@@ -60,8 +66,18 @@ async function trainerDetailsGet(req, res) {
 
 async function trainerPokemonGet(req, res) {
   const { name } = req.params;
-  const pokemons = await pokemon_db.getAllPokemon();
   const trainer = await trainers_db.getTrainer(name);
+  const allPokemon = await pokemon_db.getAllPokemon();
+  const trainerPokemons = await trainers_db.getTrainerPokemons(name);
+
+  const selectedPokemon = new Set(trainerPokemons.map((pokemon) => pokemon.id));
+
+  const pokemons = allPokemon.map(pokemon => ({
+    ...pokemon,
+    selected: selectedPokemon.has(pokemon.id),
+  }));
+
+  pokemons.sort((a, b) => (b.selected ? 1 : 0) - (a.selected ? 1 : 0));
 
   res.render("trainers/trainerAddPokemon", {
     title: `${name}'s Pokemon`,
@@ -72,15 +88,18 @@ async function trainerPokemonGet(req, res) {
 
 async function trainerPokemonPost(req, res) {
   const { name } = req.params;
-  const selectedPokemon = req.body.pokemon;
+  const selectedPokemon = (req.body.pokemon ? Array.from(req.body.pokemon) : []);
 
   const trainer = await trainers_db.getTrainer(name);
   const trainerID = trainer.id;
 
   if(Array.isArray(selectedPokemon)) {
-    selectedPokemon.forEach(async (pokemon) => {
-      await trainers_db.insertPokemonForTrainer(trainerID, pokemon); 
-    });
+    await pool.query('DELETE FROM trainer_pokemons WHERE trainer_id = $1', [trainerID]);
+    await Promise.all(
+      selectedPokemon.map(async (pokemonID) => {
+        await trainers_db.insertPokemonForTrainer(trainerID, pokemonID);
+      })
+    );
   }
 
   res.redirect(`/trainers/${name}/details`);
@@ -88,7 +107,7 @@ async function trainerPokemonPost(req, res) {
 
 module.exports = {
   trainersListGet,
-  trainersCreatePost,
+  trainersCreatePost: [validateTrainer, trainersCreatePost],
   trainerDetailsGet,
   trainerPokemonGet,
   trainerPokemonPost,

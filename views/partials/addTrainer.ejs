@@ -8,7 +8,11 @@
 </button>
 
 <section class="add-trainer">
-    <div class="add-trainer-modal">
+    <div class="add-trainer-modal"
+        data-tilt data-tilt-glare="true" 
+        data-tilt-max-glare="0.1" 
+        data-tilt-scale="1.01" 
+        data-tilt-reverse="true">
         <p><b>Add New Trainer</b></p>
         <form action="/trainers" method="POST">
             <input type="text" name="trainer-name" id="trainer-name" maxlength="20" placeholder="Name..." required>

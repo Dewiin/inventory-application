@@ -24,7 +24,9 @@
     </section>
   </div>
 
-  <section class="index-main-content">
+  <section class="index main-content">
+    <%-include("partials/searchBar")%>
+
     <div class="all-pokemon-view">
       <% pokemons.forEach((pokemon) => { %>
         <%-include("partials/pokemon", {pokemon: pokemon})%>

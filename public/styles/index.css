@@ -39,8 +39,7 @@ body {
   z-index: -1;
 }
 
-.index-main-content {
-  padding-top: 5em;
+.index.main-content {
   width: 80%;
   margin: auto;
 }

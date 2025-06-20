@@ -16,10 +16,11 @@
     <%-include("../partials/navbar")%>
   </div>
 
-
-
-  <section class="trainers-main-content">
-    <%-include("../partials/addTrainer")%>
+  <%-include("../partials/addTrainer")%>
+  <section class="trainers main-content">
+    <% if (locals.errors) { %>
+      <%-include("../partials/errors", {errors: errors})%>
+    <% } %>
 
     <div class="all-trainers-view">
       <% trainers.forEach((trainer) => { %>

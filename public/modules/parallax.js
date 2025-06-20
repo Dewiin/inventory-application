@@ -1,6 +1,6 @@
 const parallaxBg = () => {
   const homeBackground = document.querySelector(".parallax-bg");
-  const allPokemonView = document.querySelector(".all-pokemon-view");
+  const mainContent = document.querySelector(".main-content");
   const navbar = document.querySelector(".navbar");
 
   const icons = document.querySelector(".icons");
@@ -12,8 +12,8 @@ const parallaxBg = () => {
 
     homeBackground.style.transform = `translate(${xPos * 30}px, ${yPos * 30}px)`;
 
-    if (allPokemonView) {
-      allPokemonView.style.transform = `translate(${xPos * 5}px, ${yPos * 5}px)`;
+    if (mainContent) {
+      mainContent.style.transform = `translate(${xPos * 5}px, ${yPos * 5}px)`;
     }
   });
 

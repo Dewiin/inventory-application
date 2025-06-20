@@ -35,7 +35,7 @@ async function getTrainer(name) {
 async function getTrainerPokemons(name) {
   try {
     const SQL = `
-      SELECT * 
+      SELECT p.* 
       FROM pokemons p
       JOIN trainer_pokemons tp ON p.id = tp.pokemon_id
       JOIN trainers t ON tp.trainer_id = t.id
