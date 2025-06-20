@@ -49,7 +49,20 @@ async function insertPokemon(
   }
 }
 
+async function searchPokemon(searchValue) {
+  try {
+    const keyword = `%${searchValue}%`
+    const { rows } = await pool.query("SELECT * FROM pokemons WHERE name ILIKE $1", [keyword]);
+
+    return rows;
+  }
+  catch (error) {
+    console.error(`Error searching for pokemon containing '${searchValue}' `, error);
+  }
+}
+
 module.exports = {
   getAllPokemon,
   insertPokemon,
+  searchPokemon
 };

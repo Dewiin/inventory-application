@@ -3,6 +3,7 @@ const indexController = require("../controllers/indexController");
 const indexRouter = Router();
 
 indexRouter.get("/", indexController.indexGet);
+indexRouter.post("/", indexController.indexSearchPost);
 indexRouter.get("/home/:type", indexController.indexTypeGet);
 indexRouter.get("/api/pokemon/:name/details", indexController.indexDetailsGet);
 

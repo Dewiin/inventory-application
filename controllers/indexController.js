@@ -8,6 +8,14 @@ async function indexGet(req, res) {
   res.render("index", { title: "Pokédex", pokemons: pokemons, types: types });
 }
 
+async function indexSearchPost(req, res) {
+  const searchValue = req.body.searchPokemon;
+  const pokemons = await pokemon_db.searchPokemon(searchValue);
+  const types = await types_db.getAllTypes();
+
+  res.render("index", { title: "Pokédex", pokemons: pokemons, types: types });
+}
+
 async function indexTypeGet(req, res) {
   const type = req.params.type;
 
@@ -27,6 +35,7 @@ async function indexDetailsGet(req, res) {
 
 module.exports = {
   indexGet,
+  indexSearchPost,
   indexTypeGet,
-  indexDetailsGet,
+  indexDetailsGet
 };
