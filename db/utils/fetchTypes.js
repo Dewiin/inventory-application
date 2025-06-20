@@ -53,9 +53,13 @@ async function extractSprite(url) {
 }
 
 async function main() {
+  console.log("populating types...");
+  
   const TYPES_API_URL = "https://pokeapi.co/api/v2/type/?limit=16";
 
   extractTypeUrl(TYPES_API_URL);
+
+  console.log("finished populating types.");
 }
 
 main();

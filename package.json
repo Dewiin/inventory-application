@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "format": "prettier --write .",
-    "script": "node db/script.js"
+    "script": "node db/script.js && node db/utils/fetchPokemon.js && node db/utils/fetchTypes.js"
   },
   "keywords": [],
   "author": "Dewiin",

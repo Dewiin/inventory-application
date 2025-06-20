@@ -133,6 +133,3 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
-
-# script
-db/script.js

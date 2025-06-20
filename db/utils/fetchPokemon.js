@@ -101,9 +101,13 @@ async function extractInfo(url) {
 }
 
 async function main() {
+  console.log("populating pokemon...");
+
   const POKEMON_API_URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
   extractPokemonURL(POKEMON_API_URL);
+
+  console.log("finished populating pokemon.");
 }
 
 main();
