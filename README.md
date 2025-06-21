@@ -222,7 +222,6 @@ Verify that it's installed:
 ## Contributing
 We like open-source and want to develop practical applications for real-world problems. However, individual strength is limited. So, any kinds of contribution is welcome, such as:
 - New features
-- New models (your fine-tuned models)
 - Bug fixes
 - Typo fixes
 - Suggestions
