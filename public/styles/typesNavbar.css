@@ -1,6 +1,6 @@
 .types-navbar {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   width: 90%;
   height: fit-content;
   justify-content: center;
@@ -10,11 +10,20 @@
 
 .type-view {
   width: 75px;
+  height: fit-content;
   cursor: pointer;
 }
 
 .type-view > img {
+  display: block;
   width: 100%;
   border: 3px solid black;
   border-radius: 5px;
+  box-sizing: border-box;
+}
+
+@media(max-width: 930px) {
+  .type-view {
+    width: 50px;
+  }
 }
